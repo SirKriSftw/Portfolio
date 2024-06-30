@@ -5,6 +5,8 @@ import { CommandsService } from '../../services/commands.service';
 import { AboutMeCmdComponent } from '../about-me-cmd/about-me-cmd.component';
 import { ContactMeCmdComponent } from '../contact-me-cmd/contact-me-cmd.component';
 import { SkillsCmdComponent } from '../skills-cmd/skills-cmd.component';
+import { ProjectsCmdComponent } from '../projects-cmd/projects-cmd.component';
+import { TestimonialsCmdComponent } from '../testimonials-cmd/testimonials-cmd.component';
 
 @Component({
   selector: 'app-command-line',
@@ -78,15 +80,17 @@ export class CommandLineComponent {
   {
     let cleanCmd = cmd.trim().toLowerCase();
     if(cleanCmd === 'commands') this.commandContainer.createComponent(CommandsCmdComponent);
-    if(cleanCmd === 'help') 
+    else if(cleanCmd === 'help') 
     {
       const helpComp = this.commandContainer.createComponent(HelpCmdComponent);
       helpComp.instance.arg = arg;
     }
-    if(cleanCmd === 'clear') window.location.reload();
-    if(cleanCmd === 'about-me') this.commandContainer.createComponent(AboutMeCmdComponent);
-    if(cleanCmd === 'contact-me') this.commandContainer.createComponent(ContactMeCmdComponent);
-    if(cleanCmd === 'skills') this.commandContainer.createComponent(SkillsCmdComponent);
+    else if(cleanCmd === 'clear') window.location.reload();
+    else if(cleanCmd === 'about-me') this.commandContainer.createComponent(AboutMeCmdComponent);
+    else if(cleanCmd === 'contact-me') this.commandContainer.createComponent(ContactMeCmdComponent);
+    else if(cleanCmd === 'skills') this.commandContainer.createComponent(SkillsCmdComponent);
+    else if(cleanCmd === 'projects') this.commandContainer.createComponent(ProjectsCmdComponent);
+    else if(cleanCmd === 'testimonials') this.commandContainer.createComponent(TestimonialsCmdComponent);
   }
 
   makeNextCommandLine()

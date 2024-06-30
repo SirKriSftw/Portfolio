@@ -10,6 +10,8 @@ import { CommandsCmdComponent } from './components/commands-cmd/commands-cmd.com
 import { AboutMeCmdComponent } from './components/about-me-cmd/about-me-cmd.component';
 import { ContactMeCmdComponent } from './components/contact-me-cmd/contact-me-cmd.component';
 import { SkillsCmdComponent } from './components/skills-cmd/skills-cmd.component';
+import { ProjectsCmdComponent } from './components/projects-cmd/projects-cmd.component';
+import { TestimonialsCmdComponent } from './components/testimonials-cmd/testimonials-cmd.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { SkillsCmdComponent } from './components/skills-cmd/skills-cmd.component
     CommandsCmdComponent,
     AboutMeCmdComponent,
     ContactMeCmdComponent,
-    SkillsCmdComponent
+    SkillsCmdComponent,
+    ProjectsCmdComponent,
+    TestimonialsCmdComponent
   ],
   imports: [
     BrowserModule,
