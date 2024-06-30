@@ -1,5 +1,7 @@
 import { Component, ElementRef, HostListener, Renderer2, ViewChild, ViewContainerRef, input } from '@angular/core';
 import { HelpCmdComponent } from '../help-cmd/help-cmd.component';
+import { CommandsService } from '../../services/commands.service';
+import { CommandsCmdComponent } from '../commands-cmd/commands-cmd.component';
 
 @Component({
   selector: 'app-command-line',
@@ -15,14 +17,16 @@ export class CommandLineComponent {
   commands: string[] = ["help","about-me","contact-me","projects","skills","commands","testimonials"]
   currentCommand: string = "";
   isDisabled = false;
+  errorMsg = false;
 
 
   constructor(private renderer: Renderer2, 
-              private elementRef: ElementRef){}
+              private elementRef: ElementRef,
+              private commandsService: CommandsService){}
 
   @HostListener('document:click', ['$event.target'])
   onClickOutside(target: any) {
-    if (!this.elementRef.nativeElement.contains(target)) {
+    if (!this.elementRef.nativeElement.contains(target) && !this.isDisabled) {
       this.setFocus();
     }
   }
@@ -32,22 +36,64 @@ export class CommandLineComponent {
     this.setFocus();
   }
 
+  ngOnInit()
+  {
+    this.commandsService.getAllCommandNames().subscribe(
+      (r) => {
+        this.commands = r;
+      }
+    );
+  }
+
   setFocus()
   {
     const inputElement = this.commandInput.element.nativeElement as HTMLInputElement;
     if(!this.isDisabled) this.renderer.selectRootElement(inputElement).focus(); 
   }
 
-  enterCommand(e: Event)
+  enterCommand()
   {
-    console.log(`Command: ${this.currentCommand.trim()} fired.`);
+    const commandToRun = this.currentCommand.split(' ')[0];
+    const argToRun = this.currentCommand.split(' ').splice(1);
+    if(this.commands.includes(commandToRun.trim().toLowerCase()))
+    {
+      console.log(`Command: ${this.currentCommand.trim()} fired.`);
+      this.runCommand(commandToRun, argToRun);
+    }
+    else
+    {
+      this.errorMsg = true;
+    }
     this.isDisabled = true;
-    this.runCommand();
+    this.nextCommand();
   }
 
-  runCommand()
+  runCommand(cmd: string, arg: string[])
   {
-    this.commandContainer.createComponent(HelpCmdComponent);
+    if(cmd.trim().toLowerCase() === 'commands') this.commandContainer.createComponent(CommandsCmdComponent);
+    if(cmd.trim().toLowerCase() === 'help') 
+    {
+      const helpComp = this.commandContainer.createComponent(HelpCmdComponent);
+      helpComp.instance.arg = arg;
+    }
+  }
+
+  nextCommand()
+  {
     this.nextCommandLine.createComponent(CommandLineComponent);
+  }
+
+  autocomplete(e: Event)
+  {
+    e.preventDefault();
+    const words = this.currentCommand.trim().split(/\s+/);
+
+    const lastWord = words[words.length -1];
+
+    const matchedCommand = this.commands.find(c => c.startsWith(lastWord));
+    if(matchedCommand)
+    {
+      words.length > 1 ? this.currentCommand = words.slice(0, -1).join(' ') + " " + matchedCommand : this.currentCommand = matchedCommand;
+    }
   }
 }

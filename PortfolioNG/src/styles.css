@@ -4,3 +4,7 @@
     color: limegreen;
     font-family: monospace;
 }
+
+.indent {
+    margin-left: 16px;
+}

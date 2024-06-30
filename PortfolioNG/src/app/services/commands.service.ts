@@ -22,6 +22,10 @@ export class CommandsService {
           description: "Shows list of all available commands."
         },
         {
+          name: "clear",
+          description: "Clears screen"
+        },
+        {
           name: "about-me",
           description: "More about me, Kristian Perez."
         },
@@ -50,7 +54,7 @@ export class CommandsService {
   {
     return from(
       new Promise<string[]>((resolve, reject) => {
-        const commandNames = ["help", "commands", "about-me","contact-me","projects","skills","testimonials"];
+        const commandNames = ["help", "commands", "clear", "about-me","contact-me","projects","skills","testimonials"];
         resolve(commandNames);
       })
     )
