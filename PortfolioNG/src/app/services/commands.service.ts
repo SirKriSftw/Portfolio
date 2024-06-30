@@ -15,7 +15,7 @@ export class CommandsService {
       const commands = [
         {
           name: "help",
-          description: "To use help command just do 'help <command name>, command list can be found using commands command.'"
+          description: "To use help command just do 'help [commands], command list can be found using 'commands' command."
         },
         {
           name: "commands",
@@ -23,15 +23,15 @@ export class CommandsService {
         },
         {
           name: "clear",
-          description: "Clears screen"
+          description: "Clears screen."
         },
         {
           name: "about-me",
-          description: "More about me, Kristian Perez."
+          description: "More about me and my personality."
         },
         {
           name: "contact-me",
-          description: "Information on how to contact me, Kristian Perez, include linkedIn, email and number."
+          description: "Information on how to contact me."
         },
         {
           name: "projects",
@@ -39,7 +39,7 @@ export class CommandsService {
         },
         {
           name: "skills",
-          description: "A list of technologies I am comfortable using."
+          description: "A list of technologies I have experience with."
         },
         {
           name: "testimonials",
