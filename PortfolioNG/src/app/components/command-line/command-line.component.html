@@ -1,8 +1,13 @@
-<div class = "command-line" *ngFor = "let command of commands">
-    <span class = "prompt">&gt;</span> {{command}}
-</div>
-
 <div class = "command-line">
     <span class = "prompt">&gt; </span>
-    <input type = "text"  class = "user-command" [(ngModel)] = "currentCommand" (keydown.enter) = "enterCommand($event)">
+    <input #commandInput type = "text"  class = "user-command" [(ngModel)] = "currentCommand" *ngIf = "!isDisabled" (keydown.enter) = "enterCommand($event)">
+    <span class = "user-command" *ngIf = "isDisabled">{{currentCommand}}</span>
+</div>
+
+<div>
+    <ng-component #commandContainer></ng-component>
+</div>
+
+<div>
+    <ng-component #nextCommandLine></ng-component>
 </div>
