@@ -1,7 +1,7 @@
-import { Component, ElementRef, HostListener, Input, Renderer2, ViewChild, ViewContainerRef, input } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
 import { HelpCmdComponent } from '../help-cmd/help-cmd.component';
-import { CommandsService } from '../../services/commands.service';
 import { CommandsCmdComponent } from '../commands-cmd/commands-cmd.component';
+import { CommandsService } from '../../services/commands.service';
 
 @Component({
   selector: 'app-command-line',
@@ -81,6 +81,7 @@ export class CommandLineComponent {
       const helpComp = this.commandContainer.createComponent(HelpCmdComponent);
       helpComp.instance.arg = arg;
     }
+    if(cmd.trim().toLowerCase() === 'clear') window.location.reload();
   }
 
   makeNextCommandLine()
