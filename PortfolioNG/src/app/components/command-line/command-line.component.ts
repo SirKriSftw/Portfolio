@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, Input, Renderer2, ViewChild, ViewC
 import { HelpCmdComponent } from '../help-cmd/help-cmd.component';
 import { CommandsCmdComponent } from '../commands-cmd/commands-cmd.component';
 import { CommandsService } from '../../services/commands.service';
+import { AboutMeCmdComponent } from '../about-me-cmd/about-me-cmd.component';
 
 @Component({
   selector: 'app-command-line',
@@ -75,13 +76,15 @@ export class CommandLineComponent {
 
   runCommand(cmd: string, arg: string[])
   {
-    if(cmd.trim().toLowerCase() === 'commands') this.commandContainer.createComponent(CommandsCmdComponent);
-    if(cmd.trim().toLowerCase() === 'help') 
+    let cleanCmd = cmd.trim().toLowerCase();
+    if(cleanCmd === 'commands') this.commandContainer.createComponent(CommandsCmdComponent);
+    if(cleanCmd === 'help') 
     {
       const helpComp = this.commandContainer.createComponent(HelpCmdComponent);
       helpComp.instance.arg = arg;
     }
-    if(cmd.trim().toLowerCase() === 'clear') window.location.reload();
+    if(cleanCmd === 'clear') window.location.reload();
+    if(cleanCmd === 'about-me') this.commandContainer.createComponent(AboutMeCmdComponent);
   }
 
   makeNextCommandLine()
