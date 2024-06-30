@@ -2,6 +2,10 @@
     margin-bottom: 24px;
 }
 
+.project-title {
+    border-bottom: 1px solid limegreen;
+}
+
 .project-heading {
     margin-bottom: 0;
     display: flex;

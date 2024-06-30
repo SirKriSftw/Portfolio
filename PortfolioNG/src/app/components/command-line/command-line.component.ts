@@ -139,7 +139,9 @@ export class CommandLineComponent {
           }
         );
       }
+      
       let matchedProject = this.projects.find(p => p.startsWith(lastWord));
+      if(("all").startsWith(lastWord)) matchedProject = "all";
       if(matchedProject)
       {
         if(matchedProject?.split(" ").length > 1) matchedProject = `'${matchedProject}'`;

@@ -16,11 +16,18 @@ export class ProjectsCmdComponent {
 
   ngOnInit()
   {
+    this.hasArgs = this.arg.length > 0;
     this.projectsService.getAllProjects().subscribe(
       (r) => {
         this.projects = r;
-        this.hasArgs = this.arg.length > 0;
-        if(this.hasArgs) this.getSelectedProjects();
+        if(this.hasArgs)
+        {
+          if(this.arg.includes('all'))
+            {
+              this.arg = this.projects.map(p => p.name);
+            }
+          this.getSelectedProjects();
+        }
       }
     );
   }
