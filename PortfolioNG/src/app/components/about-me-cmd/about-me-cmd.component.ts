@@ -22,7 +22,7 @@ export class AboutMeCmdComponent {
                     "myself working on it constantly when I have a fun project to work on. I love to challenge myself to learn more and more with every project I do.";
     this.personal = "Outside of programming, I enjoy video games and baking. Funny story, for the past few months now I make home-made pancakes into familiar shapes, animals or characters " +
                     "and have friends guess what I made. It's always fun to see what crazy guess they have. At the end of the day I am just an optimistic who just loves helping others where I can."
-    this.cta = "Thank you for taking the time to check out my portfolio! Feel free to checkout some of my work at https://github.com/SirKriSftw or just reach out to me  at SirKriSftw@hotmail.com"
+    this.cta = "Thank you for taking the time to check out my portfolio! Feel free to checkout some of my work or just reach out by using the 'contact-me' command."
     this.aboutMe.push(this.intro);
     this.aboutMe.push(this.passion);
     this.aboutMe.push(this.personal);

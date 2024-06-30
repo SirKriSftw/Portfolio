@@ -49,8 +49,6 @@ export class CommandLineComponent {
         this.commands = r;
       }
     );
-
-    console.log(this.pastCommands);
   }
 
   setFocus()
@@ -97,6 +95,10 @@ export class CommandLineComponent {
     this.pastCommands.push(this.currentCommand);
     nextCommandLineRef.instance.pastCommands = this.pastCommands;
     nextCommandLineRef.instance.index = this.pastCommands.length;
+
+    setTimeout(() => {
+      nextCommandLineRef.location.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }, 0);
   }
 
   autocomplete(e: Event)

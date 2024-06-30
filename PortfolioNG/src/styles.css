@@ -8,3 +8,22 @@
 .indent {
     margin-left: 16px;
 }
+
+::-webkit-scrollbar-track {
+    background: black; 
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: black; 
+    border: 3px solid black; 
+}
+
+/* Firefox */
+* {
+    scrollbar-color: black black;
+}
+
+/* Firefox dark theme */
+* {
+    scrollbar-color: black #000;
+}
