@@ -4,6 +4,7 @@ import { CommandsCmdComponent } from '../commands-cmd/commands-cmd.component';
 import { CommandsService } from '../../services/commands.service';
 import { AboutMeCmdComponent } from '../about-me-cmd/about-me-cmd.component';
 import { ContactMeCmdComponent } from '../contact-me-cmd/contact-me-cmd.component';
+import { SkillsCmdComponent } from '../skills-cmd/skills-cmd.component';
 
 @Component({
   selector: 'app-command-line',
@@ -87,6 +88,7 @@ export class CommandLineComponent {
     if(cleanCmd === 'clear') window.location.reload();
     if(cleanCmd === 'about-me') this.commandContainer.createComponent(AboutMeCmdComponent);
     if(cleanCmd === 'contact-me') this.commandContainer.createComponent(ContactMeCmdComponent);
+    if(cleanCmd === 'skills') this.commandContainer.createComponent(SkillsCmdComponent);
   }
 
   makeNextCommandLine()
