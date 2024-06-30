@@ -1,0 +1,21 @@
+.project-heading {
+    margin-bottom: 0;
+    display: flex;
+}
+
+.icon-container {
+    margin-left: 12px;
+}
+
+.tech-header {
+    text-decoration: underline;
+}
+
+.my-link {
+    color: limegreen;
+    text-decoration: none;
+}
+
+.my-link:hover {
+    color: lime;
+}

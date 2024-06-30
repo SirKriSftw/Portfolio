@@ -33,7 +33,7 @@ export class ProjectsService {
           name: "Connect 4",
           description: "A command line version of Connect 4. Face off against a local friend, or against an AI, or let two AIs battle it out.",
           start: new Date(2024, 3),
-          end: undefined,
+          end: new Date(2024, 4),
           techUsed: ["Ruby"],
           repoLink: "https://github.com/SirKriSftw/Connect4"
         },
