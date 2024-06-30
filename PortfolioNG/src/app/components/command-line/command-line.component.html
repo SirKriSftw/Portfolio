@@ -1,0 +1,8 @@
+<div class = "command-line" *ngFor = "let command of commands">
+    <span class = "prompt">&gt;</span> {{command}}
+</div>
+
+<div class = "command-line">
+    <span class = "prompt">&gt; </span>
+    <input type = "text"  class = "user-command" [(ngModel)] = "currentCommand" (keydown.enter) = "enterCommand($event)">
+</div>
