@@ -1,1 +1,11 @@
-<p>skills-cmd works!</p>
+<div class = "wrapper">
+    <div *ngFor = "let type of skills" class = "indent">
+        <h1 class = "heading">{{type[0].type}}</h1>
+        <div *ngFor = "let skill of type" class = "indent skill-container">
+            <div class = "skill">
+                <span class = "skill-name">{{skill.name}}</span><span class = "skill-separator "> | </span><span class = "skill-experience">{{skill.experience}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+

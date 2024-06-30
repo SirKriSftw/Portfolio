@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Skill } from '../../models/skill.model';
+import { SkillsService } from '../../services/skills.service';
 
 @Component({
   selector: 'app-skills-cmd',
@@ -7,4 +9,16 @@ import { Component } from '@angular/core';
 })
 export class SkillsCmdComponent {
 
+  skills: Skill[][] = [];
+
+  constructor(private skillsService: SkillsService){}
+
+  ngOnInit()
+  {
+    this.skillsService.getAllSkills().subscribe(
+      (r) => {
+        this.skills = r;
+      }
+    );
+  }
 }

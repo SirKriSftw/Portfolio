@@ -1,0 +1,42 @@
+.wrapper {
+    margin-bottom: 16px;
+}
+
+.heading  {
+    margin-bottom: 0;
+}
+
+.skill-container:nth-child(even) {
+    border: 1px #008800 solid;
+}
+
+.skill-container:nth-child(odd) {
+    border: 1px #00FF00 solid;
+}
+
+.skill-container {
+    width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.skill {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.skill-name {
+    flex: 1;
+    white-space: nowrap;
+}
+
+.skill-separator {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.skill-experience {
+    flex-shrink: 0;
+    flex: 1;
+}
