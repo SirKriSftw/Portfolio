@@ -7,11 +7,11 @@
 }
 
 .skill-container:nth-child(even) {
-    border: 1px #008800 solid;
+    border-bottom: 1px #008800 solid;
 }
 
 .skill-container:nth-child(odd) {
-    border: 1px #00FF00 solid;
+    border-bottom: 1px #00FF00 solid;
 }
 
 .skill-container {
@@ -24,6 +24,7 @@
     display: flex;
     flex: 1;
     align-items: center;
+    padding-top: 5px;
 }
 
 .skill-name {
@@ -31,9 +32,8 @@
     white-space: nowrap;
 }
 
-.skill-separator {
-    margin: 0;
-    flex-shrink: 0;
+.skill-icon {
+    margin-right: 5px;
 }
 
 .skill-experience {

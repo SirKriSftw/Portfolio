@@ -1,3 +1,7 @@
+.projects-container {
+    margin-bottom: 24px;
+}
+
 .project-heading {
     margin-bottom: 0;
     display: flex;

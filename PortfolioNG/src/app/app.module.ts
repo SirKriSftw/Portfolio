@@ -12,6 +12,7 @@ import { ContactMeCmdComponent } from './components/contact-me-cmd/contact-me-cm
 import { SkillsCmdComponent } from './components/skills-cmd/skills-cmd.component';
 import { ProjectsCmdComponent } from './components/projects-cmd/projects-cmd.component';
 import { TestimonialsCmdComponent } from './components/testimonials-cmd/testimonials-cmd.component';
+import { IconComponent } from './components/icon/icon.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TestimonialsCmdComponent } from './components/testimonials-cmd/testimon
     ContactMeCmdComponent,
     SkillsCmdComponent,
     ProjectsCmdComponent,
-    TestimonialsCmdComponent
+    TestimonialsCmdComponent,
+    IconComponent
   ],
   imports: [
     BrowserModule,

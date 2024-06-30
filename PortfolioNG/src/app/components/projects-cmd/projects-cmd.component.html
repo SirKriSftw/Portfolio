@@ -4,7 +4,7 @@
     </div>
 </div>
 
-<div *ngIf = "hasArgs">
+<div *ngIf = "hasArgs" class = "projects-container">
     <div *ngIf = "projects.length == 0">
         <p>
             No project(s) with name(s) {{this.arg}} were found.
@@ -33,19 +33,7 @@
                     
                     <div *ngFor = "let tech of project.techUsed">
                         <div>
-                            <i *ngIf = "tech == 'JavaScript'" class="fa-brands fa-js"></i>
-                            <i *ngIf = "tech == 'Discord.js'" class="fa-brands fa-discord"></i>
-                            <i *ngIf = "tech == 'Docker'" class="fa-brands fa-docker"></i>
-                            <i *ngIf = "tech == 'Ruby'" class="fa-solid fa-gem"></i> 
-                            <i *ngIf = "tech == 'HTML/CSS'" class="fa-brands fa-html5"></i> 
-                            <i *ngIf = "tech == 'Angular'" class="fa-brands fa-angular"></i> 
-                            <i *ngIf = "tech == 'Azure' || tech == 'AWS'" class="fa-solid fa-cloud-arrow-up"></i> 
-                            <i *ngIf = "tech == 'Entity Framework'" class="fa-solid fa-code-fork"></i> 
-                            <i *ngIf = "tech.includes('.NET')" class="fa-brands fa-windows"></i> 
-                            <i *ngIf = "tech.includes('SQL') || tech == 'MonogDB'" class="fa-solid fa-database"></i> 
-
-                            {{tech}}
-                            
+                           <app-icon [iconName]="tech"></app-icon> {{tech}}                            
                         </div>
                     </div>
             </div>
