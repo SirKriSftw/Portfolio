@@ -57,4 +57,14 @@ export class ProjectsService {
       resolve(projects);
     }));
   }
+
+  getAllProjectNames() : Observable<string[]>
+  {
+    return from(
+      new Promise<string[]>((resolve, reject) => {
+        const commandNames = ["colorfulbot", "etch-a-sketch", "connect 4", "progear", "eventit"];
+        resolve(commandNames);
+      })
+    )
+  }
 }

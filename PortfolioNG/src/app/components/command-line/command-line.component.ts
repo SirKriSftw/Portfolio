@@ -7,6 +7,7 @@ import { ContactMeCmdComponent } from '../contact-me-cmd/contact-me-cmd.componen
 import { SkillsCmdComponent } from '../skills-cmd/skills-cmd.component';
 import { ProjectsCmdComponent } from '../projects-cmd/projects-cmd.component';
 import { TestimonialsCmdComponent } from '../testimonials-cmd/testimonials-cmd.component';
+import { ProjectsService } from '../../services/projects.service';
 
 @Component({
   selector: 'app-command-line',
@@ -22,7 +23,8 @@ export class CommandLineComponent {
   @Input() pastCommands: string[] = [];
   @Input() index: number = 0;
 
-  commands: string[] = ["help","about-me","contact-me","projects","skills","commands","testimonials"]
+  commands: string[] = [];
+  projects: string[] = [];
   currentCommand: string = "";
   isDisabled = false;
   errorMsg = false;
@@ -30,7 +32,8 @@ export class CommandLineComponent {
 
   constructor(private renderer: Renderer2, 
               private elementRef: ElementRef,
-              private commandsService: CommandsService){}
+              private commandsService: CommandsService,
+              private projectsService: ProjectsService){}
 
   @HostListener('document:click', ['$event.target'])
   onClickOutside(target: any) {
@@ -76,20 +79,24 @@ export class CommandLineComponent {
     this.makeNextCommandLine();
   }
 
-  runCommand(cmd: string, arg: string[])
+  runCommand(cmd: string, args: string[])
   {
     let cleanCmd = cmd.trim().toLowerCase();
     if(cleanCmd === 'commands') this.commandContainer.createComponent(CommandsCmdComponent);
     else if(cleanCmd === 'help') 
     {
       const helpComp = this.commandContainer.createComponent(HelpCmdComponent);
-      helpComp.instance.arg = arg;
+      helpComp.instance.arg = args;
     }
     else if(cleanCmd === 'clear') window.location.reload();
     else if(cleanCmd === 'about-me') this.commandContainer.createComponent(AboutMeCmdComponent);
     else if(cleanCmd === 'contact-me') this.commandContainer.createComponent(ContactMeCmdComponent);
     else if(cleanCmd === 'skills') this.commandContainer.createComponent(SkillsCmdComponent);
-    else if(cleanCmd === 'projects') this.commandContainer.createComponent(ProjectsCmdComponent);
+    else if(cleanCmd === 'projects') 
+    {
+      const projectCmd = this.commandContainer.createComponent(ProjectsCmdComponent);
+      projectCmd.instance.arg = args;
+    }
     else if(cleanCmd === 'testimonials') this.commandContainer.createComponent(TestimonialsCmdComponent);
   }
 
@@ -111,11 +118,33 @@ export class CommandLineComponent {
     const words = this.currentCommand.trim().split(/\s+/);
 
     const lastWord = words[words.length -1];
+    const firstWord = words[0];
 
-    const matchedCommand = this.commands.find(c => c.startsWith(lastWord));
-    if(matchedCommand)
+    if(firstWord != "projects")
     {
-      words.length > 1 ? this.currentCommand = words.slice(0, -1).join(' ') + " " + matchedCommand : this.currentCommand = matchedCommand;
+      const matchedCommand = this.commands.find(c => c.startsWith(lastWord));
+      if(matchedCommand)
+      {
+        words.length > 1 ? this.currentCommand = words.slice(0, -1).join(' ') + " " + matchedCommand : this.currentCommand = matchedCommand;
+      }
+    } 
+
+    if(firstWord == "projects")
+    {
+      if(this.projects.length == 0) 
+      {
+        this.projectsService.getAllProjectNames().subscribe(
+          (r) => {
+            this.projects = r;
+          }
+        );
+      }
+      let matchedProject = this.projects.find(p => p.startsWith(lastWord));
+      if(matchedProject)
+      {
+        if(matchedProject?.split(" ").length > 1) matchedProject = `'${matchedProject}'`;
+        this.currentCommand = words.slice(0, -1).join(' ') + " " + matchedProject;
+      }
     }
   }
 
