@@ -3,6 +3,7 @@ import { HelpCmdComponent } from '../help-cmd/help-cmd.component';
 import { CommandsCmdComponent } from '../commands-cmd/commands-cmd.component';
 import { CommandsService } from '../../services/commands.service';
 import { AboutMeCmdComponent } from '../about-me-cmd/about-me-cmd.component';
+import { ContactMeCmdComponent } from '../contact-me-cmd/contact-me-cmd.component';
 
 @Component({
   selector: 'app-command-line',
@@ -85,6 +86,7 @@ export class CommandLineComponent {
     }
     if(cleanCmd === 'clear') window.location.reload();
     if(cleanCmd === 'about-me') this.commandContainer.createComponent(AboutMeCmdComponent);
+    if(cleanCmd === 'contact-me') this.commandContainer.createComponent(ContactMeCmdComponent);
   }
 
   makeNextCommandLine()

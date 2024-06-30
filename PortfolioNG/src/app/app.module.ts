@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { HelpCmdComponent } from './components/help-cmd/help-cmd.component';
 import { CommandsCmdComponent } from './components/commands-cmd/commands-cmd.component';
 import { AboutMeCmdComponent } from './components/about-me-cmd/about-me-cmd.component';
+import { ContactMeCmdComponent } from './components/contact-me-cmd/contact-me-cmd.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AboutMeCmdComponent } from './components/about-me-cmd/about-me-cmd.comp
     CommandLineComponent,
     HelpCmdComponent,
     CommandsCmdComponent,
-    AboutMeCmdComponent
+    AboutMeCmdComponent,
+    ContactMeCmdComponent
   ],
   imports: [
     BrowserModule,
