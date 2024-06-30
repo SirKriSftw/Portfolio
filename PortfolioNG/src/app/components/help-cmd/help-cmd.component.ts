@@ -26,6 +26,7 @@ export class HelpCmdComponent {
 
   getHelp()
   {
+    if(this.arg.length < 1) this.descriptions.push("Try running 'commands' to see all possible commands.");
     this.arg.forEach((cmd) => 
     {
       let foundCmd = this.commands.find(c => c.name == cmd);

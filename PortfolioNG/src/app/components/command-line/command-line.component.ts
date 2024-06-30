@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Renderer2, ViewChild, ViewContainerRef, input } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, Renderer2, ViewChild, ViewContainerRef, input } from '@angular/core';
 import { HelpCmdComponent } from '../help-cmd/help-cmd.component';
 import { CommandsService } from '../../services/commands.service';
 import { CommandsCmdComponent } from '../commands-cmd/commands-cmd.component';
@@ -13,6 +13,9 @@ export class CommandLineComponent {
   @ViewChild('commandContainer', { read: ViewContainerRef }) commandContainer!: ViewContainerRef;
   @ViewChild('nextCommandLine', { read: ViewContainerRef }) nextCommandLine!: ViewContainerRef;
   @ViewChild('commandInput', { read: ViewContainerRef }) commandInput!: ViewContainerRef;
+
+  @Input() pastCommands: string[] = [];
+  @Input() index: number = 0;
 
   commands: string[] = ["help","about-me","contact-me","projects","skills","commands","testimonials"]
   currentCommand: string = "";
@@ -43,6 +46,8 @@ export class CommandLineComponent {
         this.commands = r;
       }
     );
+
+    console.log(this.pastCommands);
   }
 
   setFocus()
@@ -65,7 +70,7 @@ export class CommandLineComponent {
       this.errorMsg = true;
     }
     this.isDisabled = true;
-    this.nextCommand();
+    this.makeNextCommandLine();
   }
 
   runCommand(cmd: string, arg: string[])
@@ -78,9 +83,12 @@ export class CommandLineComponent {
     }
   }
 
-  nextCommand()
+  makeNextCommandLine()
   {
-    this.nextCommandLine.createComponent(CommandLineComponent);
+    const nextCommandLineRef = this.nextCommandLine.createComponent(CommandLineComponent);
+    this.pastCommands.push(this.currentCommand);
+    nextCommandLineRef.instance.pastCommands = this.pastCommands;
+    nextCommandLineRef.instance.index = this.pastCommands.length;
   }
 
   autocomplete(e: Event)
@@ -95,5 +103,27 @@ export class CommandLineComponent {
     {
       words.length > 1 ? this.currentCommand = words.slice(0, -1).join(' ') + " " + matchedCommand : this.currentCommand = matchedCommand;
     }
+  }
+
+  prevCommand(e: Event)
+  {
+    e.preventDefault();
+    if(!(this.pastCommands.length > 0)) return;
+    if(this.index > 0) this.index--;
+    this.commandInput.element.nativeElement.value = this.pastCommands[this.index];
+    this.currentCommand = this.pastCommands[this.index];
+  }
+
+  nextCommand(e: Event)
+  {
+    e.preventDefault();
+    if(this.index >= this.pastCommands.length)
+    {
+      this.currentCommand = "";
+      return;
+    }
+    this.index++;
+    this.commandInput.element.nativeElement.value = this.pastCommands[this.index];
+    this.currentCommand = this.pastCommands[this.index];
   }
 }

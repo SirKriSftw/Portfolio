@@ -1,6 +1,10 @@
 <div class = "command-line">
     <span class = "prompt">&gt; </span>
-    <input #commandInput type = "text"  class = "user-command" [(ngModel)] = "currentCommand" *ngIf = "!isDisabled" (keydown.enter) = "enterCommand()" (keydown.Tab) = "autocomplete($event)">
+    <input #commandInput type = "text"  class = "user-command" [(ngModel)] = "currentCommand" *ngIf = "!isDisabled" 
+    (keydown.enter) = "enterCommand()" 
+    (keydown.Tab) = "autocomplete($event)" 
+    (keydown.ArrowUp) = "prevCommand($event)" 
+    (keydown.ArrowDown) = "nextCommand($event)">
     <span class = "user-command" *ngIf = "isDisabled">{{currentCommand}}</span>
     <p *ngIf = "errorMsg" class = "indent">The command '{{currentCommand}}' is not a valid command. Try running 'commands' to get all commands.</p>
 </div>
