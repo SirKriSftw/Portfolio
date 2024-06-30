@@ -97,7 +97,7 @@ export class CommandLineComponent {
     nextCommandLineRef.instance.index = this.pastCommands.length;
 
     setTimeout(() => {
-      nextCommandLineRef.location.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      nextCommandLineRef.location.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 0);
   }
 
