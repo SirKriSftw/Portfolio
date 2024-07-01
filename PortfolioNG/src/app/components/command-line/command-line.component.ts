@@ -9,6 +9,7 @@ import { ProjectsCmdComponent } from '../projects-cmd/projects-cmd.component';
 import { TestimonialsCmdComponent } from '../testimonials-cmd/testimonials-cmd.component';
 import { ProjectsService } from '../../services/projects.service';
 import { ExperienceCmdComponent } from '../experience-cmd/experience-cmd.component';
+import { ExperienceService } from '../../services/experience.service';
 
 @Component({
   selector: 'app-command-line',
@@ -22,10 +23,11 @@ export class CommandLineComponent {
   @ViewChild('commandInput', { read: ViewContainerRef }) commandInput!: ViewContainerRef;
 
   @Input() pastCommands: string[] = [];
+  @Input() projects: string[] = [];
+  @Input() experience: string[] = [];
   @Input() index: number = 0;
 
   commands: string[] = [];
-  projects: string[] = [];
   currentCommand: string = "";
   isDisabled = false;
   errorMsg = false;
@@ -34,7 +36,8 @@ export class CommandLineComponent {
   constructor(private renderer: Renderer2, 
               private elementRef: ElementRef,
               private commandsService: CommandsService,
-              private projectsService: ProjectsService){}
+              private projectsService: ProjectsService,
+              private experienceService: ExperienceService){}
 
   @HostListener('document:click', ['$event.target'])
   onClickOutside(target: any) {
@@ -53,6 +56,18 @@ export class CommandLineComponent {
     this.commandsService.getAllCommandNames().subscribe(
       (r) => {
         this.commands = r;
+      }
+    );
+
+    this.projectsService.getAllProjectNames().subscribe(
+      (r) => {
+        this.projects = r;
+      }
+    );
+
+    this.experienceService.getAllExperienceNames().subscribe(
+      (r) => {
+        this.experience = r;
       }
     );
   }
@@ -108,6 +123,8 @@ export class CommandLineComponent {
     this.pastCommands.push(this.currentCommand);
     nextCommandLineRef.instance.pastCommands = this.pastCommands;
     nextCommandLineRef.instance.index = this.pastCommands.length;
+    nextCommandLineRef.instance.projects = this.projects;
+    nextCommandLineRef.instance.experience = this.experience;
 
     setTimeout(() => {
       nextCommandLineRef.location.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
@@ -122,7 +139,7 @@ export class CommandLineComponent {
     const lastWord = words[words.length -1];
     const firstWord = words[0];
 
-    if(firstWord != "projects")
+    if(firstWord != "projects" && firstWord != "experience")
     {
       const matchedCommand = this.commands.find(c => c.startsWith(lastWord));
       if(matchedCommand)
@@ -131,23 +148,35 @@ export class CommandLineComponent {
       }
     } 
 
+
     if(firstWord == "projects")
-    {
-      if(this.projects.length == 0) 
-      {
-        this.projectsService.getAllProjectNames().subscribe(
-          (r) => {
-            this.projects = r;
-          }
-        );
-      }
-      
-      let matchedProject = this.projects.find(p => p.startsWith(lastWord));
+    {      
+      let matchedProject = this.projects.find(p => p.toLowerCase().startsWith(lastWord.toLowerCase()));
       if(("all").startsWith(lastWord)) matchedProject = "all";
       if(matchedProject)
       {
         if(matchedProject?.split(" ").length > 1) matchedProject = `'${matchedProject}'`;
         this.currentCommand = words.slice(0, -1).join(' ') + " " + matchedProject;
+      }
+      else if(lastWord == "projects")
+      {
+        this.currentCommand = firstWord + " all";
+      }
+    }
+
+    
+    if(firstWord == "experience")
+    {
+      let matchedExperience = this.experience.find(e => e.toLowerCase().startsWith(lastWord.toLowerCase()));
+      if(("all").startsWith(lastWord)) matchedExperience = "all";
+      if(matchedExperience)
+      {
+        if(matchedExperience?.split(" ").length > 1) matchedExperience = `'${matchedExperience}'`;
+        this.currentCommand = words.slice(0, -1).join(' ') + " " + matchedExperience;
+      }
+      else if(lastWord == "experience")
+      {
+        this.currentCommand = firstWord + " all";
       }
     }
   }
