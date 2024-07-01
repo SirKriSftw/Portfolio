@@ -20,6 +20,11 @@
     overflow: hidden;
 }
 
+.msg-container {
+    border-top: 1px limegreen dotted;
+    border-bottom: 1px limegreen dotted;
+}
+
 .reveal {
     width: 100%;
     height: 100%;
