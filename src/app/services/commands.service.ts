@@ -58,7 +58,7 @@ export class CommandsService {
   {
     return from(
       new Promise<string[]>((resolve, reject) => {
-        const commandNames = ["help", "commands", "clear", "about-me","contact-me","projects","skills","testimonials", "experience"];
+        const commandNames = ["about-me", "clear", "commands", "contact-me", "experience", "help", "projects", "skills", "testimonials"];
         resolve(commandNames);
       })
     )
