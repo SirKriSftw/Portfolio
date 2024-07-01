@@ -36,8 +36,8 @@
 
                     <h3 class = "heading tech-header">Technologies Used</h3>
                     
-                    <div *ngFor = "let tech of project.techUsed">
-                        <div>
+                    <div class = "tech-container">
+                        <div *ngFor = "let tech of project.techUsed">
                            <app-icon [iconName]="tech"></app-icon> {{tech}}                            
                         </div>
                     </div>

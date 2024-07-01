@@ -8,11 +8,11 @@
 }
 
 .skills:nth-child(even) {
-    border-bottom: 1px #008800 solid;
+    border-bottom: 1px #008800 dotted;
 }
 
 .skills:nth-child(odd) {
-    border-bottom: 1px #00FF00 solid;
+    border-bottom: 1px #00FF00 dotted;
 }
 
 .skill {

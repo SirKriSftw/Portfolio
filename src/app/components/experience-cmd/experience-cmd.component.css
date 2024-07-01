@@ -1,5 +1,5 @@
 .title {
-    border-bottom: 1px solid limegreen;
+    border-bottom: 1px limegreen dotted;
     margin-bottom: 0;
     display: flex;
 }
