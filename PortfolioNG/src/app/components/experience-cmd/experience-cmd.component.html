@@ -1,17 +1,17 @@
 <div *ngIf = "!hasArgs">
-    <div *ngFor = "let e of experience" class = "indent">
+    <div *ngFor = "let e of experience">
         <p>- {{e.name}}</p>
     </div>
 </div>
 
-<div *ngIf = "hasArgs" class = "experience-container">
+<div *ngIf = "hasArgs">
     <div *ngIf = "experience.length == 0">
         <p>
             No project(s) with name(s) {{this.arg}} were found.
         </p>
     </div>
-    <div *ngFor = "let e of experience" class = "indent">
-        <h1 class = "experience-title">{{e.name}}</h1>
+    <div *ngFor = "let e of experience">
+        <h1 class = "title">{{e.name}}</h1>
         <i>{{e.position}}</i>
         <div class = "indent">
             <span *ngIf = "e.start">

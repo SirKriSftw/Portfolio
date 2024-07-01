@@ -1,8 +1,4 @@
-.experience-container {
-    margin-bottom: 24px;
-}
-
-.experience-title {
+.title {
     border-bottom: 1px solid limegreen;
     margin-bottom: 0;
     display: flex;

@@ -1,17 +1,17 @@
 <div *ngIf = "!hasArgs">
-    <div *ngFor = "let project of projects" class = "indent">
+    <div *ngFor = "let project of projects">
         <p>- {{project.name}}</p>
     </div>
 </div>
 
-<div *ngIf = "hasArgs" class = "projects-container">
+<div *ngIf = "hasArgs">
     <div *ngIf = "projects.length == 0">
         <p>
             No project(s) with name(s) {{this.arg}} were found.
         </p>
     </div>
-    <div *ngFor = "let project of projects" class = "indent">
-        <h1 class = "project-heading project-title">{{project.name}}                 
+    <div *ngFor = "let project of projects">
+        <h1 class = "heading title">{{project.name}}                 
             <div *ngIf = "project.repoLink" class = "icon-container">
                 <a class = "link" [attr.href] = "project.repoLink" target="_blank">
                     <app-icon iconName = "github"></app-icon>
@@ -29,7 +29,7 @@
             </p>
             <div class = "indent">
 
-                    <h3 class = "project-heading tech-header">Technologies Used</h3>
+                    <h3 class = "heading tech-header">Technologies Used</h3>
                     
                     <div *ngFor = "let tech of project.techUsed">
                         <div>

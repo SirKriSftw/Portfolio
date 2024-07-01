@@ -1,23 +1,18 @@
-.wrapper {
-    margin-bottom: 16px;
+.skills {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .heading  {
     margin-bottom: 0;
 }
 
-.skill-container:nth-child(even) {
+.skills:nth-child(even) {
     border-bottom: 1px #008800 solid;
 }
 
-.skill-container:nth-child(odd) {
+.skills:nth-child(odd) {
     border-bottom: 1px #00FF00 solid;
-}
-
-.skill-container {
-    width: 30%;
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .skill {

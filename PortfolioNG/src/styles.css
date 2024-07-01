@@ -5,6 +5,11 @@
     font-family: monospace;
 }
 
+.container {
+    width: 30%;
+    padding-bottom: 12px;
+}
+
 .indent {
     margin-left: 16px;
 }
