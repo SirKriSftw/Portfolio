@@ -59,17 +59,23 @@ export class CommandLineComponent {
       }
     );
 
-    this.projectsService.getAllProjectNames().subscribe(
-      (r) => {
-        this.projects = r;
-      }
-    );
+    if(this.projects.length <= 0)
+    {
+      this.projectsService.getAllProjectNames().subscribe(
+        (r) => {
+          this.projects = r;
+        }
+      );
+    }
 
-    this.experienceService.getAllExperienceNames().subscribe(
-      (r) => {
-        this.experience = r;
-      }
-    );
+    if(this.experience.length <= 0)
+    {
+      this.experienceService.getAllExperienceNames().subscribe(
+        (r) => {
+          this.experience = r;
+        }
+      );
+    }
   }
 
   setFocus()
@@ -114,7 +120,11 @@ export class CommandLineComponent {
       projectCmd.instance.arg = args;
     }
     else if(cleanCmd === 'testimonials') this.commandContainer.createComponent(TestimonialsCmdComponent);
-    else if(cleanCmd === 'experience') this.commandContainer.createComponent(ExperienceCmdComponent);
+    else if(cleanCmd === 'experience')
+    {
+      const expCmd = this.commandContainer.createComponent(ExperienceCmdComponent);
+      expCmd.instance.arg = args;
+    }
   }
 
   makeNextCommandLine()

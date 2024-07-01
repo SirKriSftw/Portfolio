@@ -28,7 +28,7 @@ export class ExperienceService {
           position: ".NET Full Stack Developer",
           start: new Date(2022, 2),
           end: new Date(2023, 5),
-          description: "Gained expertiese in the .NET Stack (Angular, ASP.NET, SQL).\n" +
+          description: "Gained expertise in the .NET Stack (Angular, ASP.NET, SQL).\n" +
                       "Recognized as \'MVP\' by peers and supervisor for exceptional contributions.\n" +
                       "Led two teams in project execution: Directed a team of 4 members for the first project and managed a larger team of 20 for the second, ensuring timely delivery and adherence to project goals.\n" +
                       "Facilitated agile meetings: Headed multiple agile meetings, fostering collaboration and ensuring alignment between team members.\n" +

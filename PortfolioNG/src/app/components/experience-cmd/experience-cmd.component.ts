@@ -18,6 +18,7 @@ export class ExperienceCmdComponent {
   ngOnInit()
   {
     this.hasArgs = this.arg.length > 0;
+    console.log(this.hasArgs);
     this.experienceService.getAllExperiences().subscribe(
       (r) => {
         this.experience = r;
@@ -37,11 +38,16 @@ export class ExperienceCmdComponent {
   {
     this.fixArgs();
     let selectedExperiences: Experience[] = [];
-    this.arg.forEach((a, i) => {
-      let currentExperience = this.experience.find(p => p.name.toLowerCase() == a.toLowerCase());
+    this.arg.forEach(a => {
+      let currentExperience = this.experience.find(e => e.name.toLowerCase() == a.toLowerCase());
       if(currentExperience) selectedExperiences.push(currentExperience);
     })
     this.experience = selectedExperiences;
+  }
+
+  bulletPointDescription(d: string)
+  {
+    return d.split('\n');
   }
   
   fixArg(i: number)

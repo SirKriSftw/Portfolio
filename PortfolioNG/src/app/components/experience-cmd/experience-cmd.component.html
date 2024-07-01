@@ -1,1 +1,27 @@
-<p>experience-cmd works!</p>
+<div *ngIf = "!hasArgs">
+    <div *ngFor = "let e of experience" class = "indent">
+        <p>- {{e.name}}</p>
+    </div>
+</div>
+
+<div *ngIf = "hasArgs" class = "experience-container">
+    <div *ngIf = "experience.length == 0">
+        <p>
+            No project(s) with name(s) {{this.arg}} were found.
+        </p>
+    </div>
+    <div *ngFor = "let e of experience" class = "indent">
+        <h1 class = "experience-title">{{e.name}}</h1>
+        <i>{{e.position}}</i>
+        <div class = "indent">
+            <span *ngIf = "e.start">
+                <i class="fa-regular fa-calendar-days fa-xs"></i>
+                {{e.start | date: "MMM YYYY"}}
+            </span>
+            <span *ngIf = "e.end"> - {{e.end | date: "MMM YYYY"}}</span>
+            <p *ngFor = "let d of bulletPointDescription(e.description)" class = "indent">
+                * {{d}}
+            </p>
+        </div>
+    </div>
+</div>

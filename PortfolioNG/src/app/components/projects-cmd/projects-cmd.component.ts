@@ -32,6 +32,22 @@ export class ProjectsCmdComponent {
     );
   }
 
+  getSelectedProjects()
+  {
+    this.fixArgs();
+    let selectedProjects: Project[] = [];
+    this.arg.forEach((a, i) => {
+      let currentProject = this.projects.find(p => p.name.toLowerCase() == a.toLowerCase());
+      if(currentProject) selectedProjects.push(currentProject);
+    })
+    this.projects = selectedProjects;
+  }
+
+  bulletPointDescription(d: string)
+  {
+    return d.split('\n');
+  }
+
   fixArg(i: number)
   {
     const tempArg = this.arg.slice(i);
@@ -73,14 +89,5 @@ export class ProjectsCmdComponent {
     this.arg = temp;
   }
 
-  getSelectedProjects()
-  {
-    this.fixArgs();
-    let selectedProjects: Project[] = [];
-    this.arg.forEach((a, i) => {
-      let currentProject = this.projects.find(p => p.name.toLowerCase() == a.toLowerCase());
-      if(currentProject) selectedProjects.push(currentProject);
-    })
-    this.projects = selectedProjects;
-  }
+
 }
