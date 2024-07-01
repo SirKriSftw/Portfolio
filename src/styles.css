@@ -41,3 +41,10 @@
 * {
     scrollbar-color: black #000;
 }
+
+/* Change highlight background and text color */
+::selection {
+    background-color: #FFFFFF; 
+    color: #000000;
+}
+
