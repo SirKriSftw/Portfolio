@@ -14,7 +14,7 @@
         <h1 class = "project-heading project-title">{{project.name}}                 
             <div *ngIf = "project.repoLink" class = "icon-container">
                 <a class = "my-link" [attr.href] = "project.repoLink" target="_blank">
-                    <i class="fab fa-github"></i>
+                    <app-icon iconName = "github"></app-icon>
                 </a>
             </div>
         </h1>

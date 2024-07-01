@@ -47,7 +47,7 @@ export class CommandsService {
         },
         {
           name: "experience",
-          description: "The jobs I have had over the years."
+          description: "To see all experiences run 'experience all', to see some experiences run 'experience [experience name]', to see experience list just run 'experience'."
         }
       ];
       resolve(commands);

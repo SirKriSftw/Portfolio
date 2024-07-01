@@ -1,0 +1,30 @@
+.containter {
+    width: 30%;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.name-contact {
+    display: flex;
+}
+
+.name {
+    margin-left: 8px;
+}
+
+.relationship {
+    font-size: x-small;
+}
+
+.my-link {
+    color: limegreen;
+    text-decoration: none;
+}
+
+.my-link:hover {
+    color: lime;
+}

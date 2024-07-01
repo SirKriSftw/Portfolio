@@ -1,1 +1,22 @@
-<p>testimonials-cmd works!</p>
+<div class = "containter">
+    <div *ngFor = "let t of testimonials">
+        <div class = "testimonial">
+            <div>
+                <p *ngFor = "let p of messageSpacing(t.message)">
+                    {{p}}
+                </p>
+            </div>
+            <div class = "info">
+                <div class = "name-contact">
+                    <div *ngIf = "t.contact">
+                        <a class = "my-link" [attr.href] = "iconName(t.contact) == 'email' ? 'mailto:t.contact' : t.contact" target="_blank">
+                            <app-icon [iconName] = "iconName(t.contact)"></app-icon>
+                        </a>
+                    </div>
+                    <i class = "name">{{t.name}}</i>
+                </div>
+                <i class = "relationship">{{t.relationship}}</i>
+            </div>
+        </div>
+    </div>
+</div>
