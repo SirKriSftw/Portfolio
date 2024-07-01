@@ -9,6 +9,15 @@
     margin-left: 16px;
 }
 
+.link {
+    color: limegreen;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: lime;
+}
+
 ::-webkit-scrollbar-track {
     background: black; 
 }

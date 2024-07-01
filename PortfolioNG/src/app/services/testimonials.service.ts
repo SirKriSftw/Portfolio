@@ -23,7 +23,7 @@ export class TestimonialsService {
           "Although I have not worked with him since 2022, I would be happy to have him on my team again any point in the future. " + 
           "I am glad to have the chance to write this testimonial for him so that I can vouch for his ability to be an integral contributor to any software development team he ends up on.",
           contact: "thecodercody@gmail.com"
-        }
+        },
       ];
       resolve(testimonials);
     }));

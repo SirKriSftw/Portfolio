@@ -1,4 +1,4 @@
-<div class = "containter">
+<div class = "containter indent">
     <div *ngFor = "let t of testimonials">
         <div class = "testimonial">
             <div>
@@ -8,8 +8,8 @@
             </div>
             <div class = "info">
                 <div class = "name-contact">
-                    <div *ngIf = "t.contact">
-                        <a class = "my-link" [attr.href] = "iconName(t.contact) == 'email' ? 'mailto:t.contact' : t.contact" target="_blank">
+                    <div>
+                        <a [ngClass] = "{'link' : t.contact}" [attr.href] = "iconName(t.contact) == 'email' ? 'mailto:t.contact' : t.contact" target="_blank">
                             <app-icon [iconName] = "iconName(t.contact)"></app-icon>
                         </a>
                     </div>

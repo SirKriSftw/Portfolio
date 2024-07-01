@@ -13,7 +13,7 @@
     <div *ngFor = "let project of projects" class = "indent">
         <h1 class = "project-heading project-title">{{project.name}}                 
             <div *ngIf = "project.repoLink" class = "icon-container">
-                <a class = "my-link" [attr.href] = "project.repoLink" target="_blank">
+                <a class = "link" [attr.href] = "project.repoLink" target="_blank">
                     <app-icon iconName = "github"></app-icon>
                 </a>
             </div>

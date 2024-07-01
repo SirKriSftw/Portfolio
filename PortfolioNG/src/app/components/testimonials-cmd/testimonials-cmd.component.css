@@ -2,6 +2,11 @@
     width: 30%;
 }
 
+.testimonial {
+    border-bottom: 1px solid limegreen;
+    margin-bottom: 8px;
+}
+
 .info {
     display: flex;
     flex-direction: column;
@@ -18,13 +23,4 @@
 
 .relationship {
     font-size: x-small;
-}
-
-.my-link {
-    color: limegreen;
-    text-decoration: none;
-}
-
-.my-link:hover {
-    color: lime;
 }

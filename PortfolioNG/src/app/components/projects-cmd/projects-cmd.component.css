@@ -18,12 +18,3 @@
 .tech-header {
     text-decoration: underline;
 }
-
-.my-link {
-    color: limegreen;
-    text-decoration: none;
-}
-
-.my-link:hover {
-    color: lime;
-}
