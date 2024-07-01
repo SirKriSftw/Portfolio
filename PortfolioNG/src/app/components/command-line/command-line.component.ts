@@ -8,6 +8,7 @@ import { SkillsCmdComponent } from '../skills-cmd/skills-cmd.component';
 import { ProjectsCmdComponent } from '../projects-cmd/projects-cmd.component';
 import { TestimonialsCmdComponent } from '../testimonials-cmd/testimonials-cmd.component';
 import { ProjectsService } from '../../services/projects.service';
+import { ExperienceCmdComponent } from '../experience-cmd/experience-cmd.component';
 
 @Component({
   selector: 'app-command-line',
@@ -98,6 +99,7 @@ export class CommandLineComponent {
       projectCmd.instance.arg = args;
     }
     else if(cleanCmd === 'testimonials') this.commandContainer.createComponent(TestimonialsCmdComponent);
+    else if(cleanCmd === 'experience') this.commandContainer.createComponent(ExperienceCmdComponent);
   }
 
   makeNextCommandLine()

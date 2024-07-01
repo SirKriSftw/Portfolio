@@ -35,7 +35,7 @@ export class CommandsService {
         },
         {
           name: "projects",
-          description: "A list of my past projects."
+          description: "To see all projects run 'projects all', to see some projects run 'projects [project name]', to see projects list just run 'projects'."
         },
         {
           name: "skills",
@@ -44,6 +44,10 @@ export class CommandsService {
         {
           name: "testimonials",
           description: "What past co-workers have to say about me."
+        },
+        {
+          name: "experience",
+          description: "The jobs I have had over the years."
         }
       ];
       resolve(commands);
@@ -54,7 +58,7 @@ export class CommandsService {
   {
     return from(
       new Promise<string[]>((resolve, reject) => {
-        const commandNames = ["help", "commands", "clear", "about-me","contact-me","projects","skills","testimonials"];
+        const commandNames = ["help", "commands", "clear", "about-me","contact-me","projects","skills","testimonials", "experience"];
         resolve(commandNames);
       })
     )
