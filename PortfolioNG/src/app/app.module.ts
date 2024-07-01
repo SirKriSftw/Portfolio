@@ -14,6 +14,7 @@ import { ProjectsCmdComponent } from './components/projects-cmd/projects-cmd.com
 import { TestimonialsCmdComponent } from './components/testimonials-cmd/testimonials-cmd.component';
 import { IconComponent } from './components/icon/icon.component';
 import { ExperienceCmdComponent } from './components/experience-cmd/experience-cmd.component';
+import { IntroComponent } from './components/intro/intro.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ExperienceCmdComponent } from './components/experience-cmd/experience-c
     ProjectsCmdComponent,
     TestimonialsCmdComponent,
     IconComponent,
-    ExperienceCmdComponent
+    ExperienceCmdComponent,
+    IntroComponent
   ],
   imports: [
     BrowserModule,

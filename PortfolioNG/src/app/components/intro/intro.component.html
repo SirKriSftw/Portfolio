@@ -1,0 +1,20 @@
+<div class = "intro-wrapper">
+    <div class = "intro-container">
+        <div class = "selfie-container">
+            <img  class = "selfie reveal" [src] = "selfieUrl">
+        </div>
+        <div>
+            <p *ngFor = "let p of introMsg">
+                {{p}}
+            </p>
+        </div>
+    </div>
+</div>
+
+<audio #sound>
+    <source [src] = "dialUpUrl" type = "audio/mpeg">
+</audio>
+
+
+
+
