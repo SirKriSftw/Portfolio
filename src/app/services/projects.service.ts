@@ -15,7 +15,8 @@ export class ProjectsService {
       const projects = [
         {
           name: "ColorfulBot",
-          description: "A simple discord bot that allows user to set their color using a hex value or assign themselves roles from a set list.",
+          description: "A simple discord bot that allows user to set their color using a hex value or assign themselves roles from a set list.\n " +
+                        "Made into a docker container and hosted on Azure.",
           start: new Date(2024, 5),
           end: undefined,
           techUsed: ["JavaScript", "Discord.js", "Docker", "Azure"],
@@ -23,11 +24,12 @@ export class ProjectsService {
         },
         {
           name: "Etch-a-Sketch",
-          description: "A webpage that mimics an etch-a-sketch with the ability to change colors and opacity. A live demo can be ran here: 'https://sirkrisftw.github.io/Etch-a-Sketch/'",
+          description: "A webpage that mimics an etch-a-sketch with the ability to change colors and opacity",
           start: new Date(2024, 3),
           end: undefined,
           techUsed: ["JavaScript", "HTML/CSS"],
-          repoLink: "https://github.com/SirKriSftw/Etch-a-Sketch"
+          repoLink: "https://github.com/SirKriSftw/Etch-a-Sketch",
+          liveDemo: "https://sirkrisftw.github.io/Etch-a-Sketch/"
         },
         {
           name: "Connect 4",
@@ -40,7 +42,7 @@ export class ProjectsService {
         {
           name: "ProGear",
           description: "An e-com website made with a group of 20 projects, lead by me.",
-          start: undefined,
+          start: new Date(2022, 4),
           end: undefined,
           techUsed: ["SQL Server", "ASP.NET", "Entity Framework", "Azure", "Angular"],
           repoLink: "https://github.com/SirKriSftw/ProGear"

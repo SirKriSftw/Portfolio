@@ -5,4 +5,5 @@ export interface Project {
     description: string;
     techUsed: string[];
     repoLink?: string;
+    liveDemo?: string;
 }

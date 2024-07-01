@@ -17,6 +17,11 @@
                     <app-icon iconName = "github"></app-icon>
                 </a>
             </div>
+            <div *ngIf = "project.liveDemo" class = "icon-container">
+                <a class = "link" [attr.href] = "project.liveDemo" target="_blank">
+                    <app-icon iconName = "demo"></app-icon>
+                </a>
+            </div>
         </h1>
         <div class = "indent">
             <span *ngIf = "project.start">
@@ -24,9 +29,9 @@
                 {{project.start | date: "MMM YYYY"}}
             </span>
             <span *ngIf = "project.end"> - {{project.end | date: "MMM YYYY"}}</span>
-            <p *ngFor = "let d of bulletPointDescription(project.description)">
+            <div *ngFor = "let d of bulletPointDescription(project.description)">
                 {{d}}
-            </p>
+            </div>
             <div class = "indent">
 
                     <h3 class = "heading tech-header">Technologies Used</h3>
