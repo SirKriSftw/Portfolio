@@ -13,7 +13,7 @@ export class IntroComponent {
   selfieUrl: string = "assets/images/selfie.png";
   dialUpUrl: string = "assets/audio/dailup-internet.mp3";
   introMsg: string[] = [
-    "Hello! And welcome to Kristian Perez's Portfolio website.",
+    "Hello! And welcome to Kristian Perez's Portfolio website. To get the full effect I suggest making your page full screen.",
     "Navigating this site requires you to use commands. To see all possible commands type 'commands' and press enter!",
     "You can use the 'tab' key to autocomplete commands and up/down arrow keys to navigate previously used commands.",
     "Links to things like GitHub, LinkedIn, or a live demo can be accessed by pressing their icons, and emails can be opened pressing the envelope icon."
