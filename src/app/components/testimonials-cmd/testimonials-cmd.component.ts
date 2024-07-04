@@ -34,4 +34,9 @@ export class TestimonialsCmdComponent {
     else if(c.includes("linkedin")) return "linkedin";
     else return "";
   }
+
+  getHref(contact?: string)
+  {
+    return this.iconName(contact) == "email" ? `mailto:${contact}` : contact;
+  }
 }

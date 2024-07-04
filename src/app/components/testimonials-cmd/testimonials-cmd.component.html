@@ -7,8 +7,8 @@
         </div>
         <div class = "info">
             <div class = "name-contact">
-                <div>
-                    <a [ngClass] = "{'link' : t.contact}" [attr.href] = "iconName(t.contact) == 'email' ? 'mailto:t.contact' : t.contact" target="_blank">
+                <div *ngIf = "t.contact">
+                    <a [ngClass] = "{'link' : t.contact}" [attr.href] = "getHref(t.contact)" target="_blank">
                         <app-icon [iconName] = "iconName(t.contact)"></app-icon>
                     </a>
                 </div>
